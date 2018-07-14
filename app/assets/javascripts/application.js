@@ -18,6 +18,9 @@
 // Функция для того, что бы открыть и закрыть форму добавления задачи
 $(document).ready(() => {
     $('#todoButton').on('click', () => {
+      $('#createTodoForm').slideToggle();
+    })
+    $('#todoCancelButton').on('click', () => {
       $('#createTodoForm').slideToggle('slow');
     })
 });
