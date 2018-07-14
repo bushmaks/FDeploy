@@ -1,0 +1,34 @@
+<h1>Задачи</h1><br>
+
+<%= link_to 'Создать проект', new_project_path %>
+
+  <% @project.each do |project| %>
+      <div>
+      <h2><%= project.title %></h2>
+        <ul>
+          <% project.todos.each do |todo| %><br>
+          <li><%= todo.text %>
+            <p>
+            <strong>Выполнено?</strong>
+            <% if todo.isCompleted %>
+              Да
+            <% else %>
+              Нет
+            <% end %>
+            </p>
+          </li>
+          <% end %>
+        </ul>
+        <%= link_to 'Удалить проект', project_path(project),
+                method: :delete,
+                data: { confirm: "Удалится весь проект, вы уверены?" } %>
+      </div>
+  <% end %>
+
+  <%= button_tag(image_tag("button.png", style: "width: 50px; height: 50px"), id: "TodoButton", alt: "Добавить задачу", :onclick => "todoFormExpand()") %>
+
+  <div id="createTodoForm">
+    <h2>Добавить задачу:</h2>
+
+    <%= render 'todos/form' %>
+  </div>

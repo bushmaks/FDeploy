@@ -1,0 +1,25 @@
+<!-- Форма для создания и редактирования проекта -->
+
+<%= form_with(model: @project, local: true) do |form| %>
+  <% if @project.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= @project.errors.count %> ошибоки обнаружено:
+      </h2>
+      <ul>
+        <% @project.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <p>
+    <h3>
+      <%= form.label(:title, "Название:") %>
+      <%= form.text_field :title %>
+    </h3>
+  </p>
+  <p>
+    <%= form.submit("Создать") %>
+  </p>
+<% end %>

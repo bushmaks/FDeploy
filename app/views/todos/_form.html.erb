@@ -1,0 +1,12 @@
+<!-- Форма для создания задачи в проект -->
+
+<%= form_with scope: :todo, url: todos_path, :html => { :id => "createTodoF" } do |form| %>
+
+  <%= form.text_field(:text, placeholder: "Название задачи...") %><br>
+  <%= collection_select(:todo, :project_id, Project.all, :id, :title) %><br>
+
+<% end %>
+
+
+<%= button_tag('ОТМЕНА', onclick: "todoFormCollapse()", id: "TodoButton") %>
+<%= link_to 'OK', '', :onclick => "$('#createTodoF').submit()" %>

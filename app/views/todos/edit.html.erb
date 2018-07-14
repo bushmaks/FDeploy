@@ -1,0 +1,20 @@
+<h1> Изменение задачи </h1>
+
+<%= form_with(model: [@project, @todo], local: true) do |form| %>
+  <p>
+    <%= form.label(:text, "Задача:") %><br>
+    <%= form.text_field :text %>
+  </p>
+  <p>
+    Выполнена:<br>
+    <%= form.radio_button(:isCompleted, true) %>
+    <%= form.label(:bool, "Да") %>
+    <%= form.radio_button(:isCompleted, false) %>
+    <%= form.label(:bool, "Нет") %>
+  </p>
+  <p>
+    <%= form.submit("Изменить") %>
+  </p>
+<% end %>
+
+<%= link_to 'На главную', projects_path %>
