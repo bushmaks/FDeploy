@@ -4,9 +4,6 @@
 
   <%= form.text_field(:text, placeholder: "Название задачи...") %><br>
   <%= collection_select(:todo, :project_id, Project.all, :id, :title) %><br>
-
+  <%= button_tag('ОТМЕНА', class: "todoButton") %>
+  <%= link_to 'OK', '', :class => 'submit-btn' %>
 <% end %>
-
-
-<%= button_tag('ОТМЕНА', class: "todoButton") %>
-<%= link_to 'OK', '', :onclick => "$('#TodoForm').submit()" %>

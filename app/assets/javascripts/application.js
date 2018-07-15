@@ -19,5 +19,9 @@
 $(document).ready(() => {
     $('.todoButton').on('click', () => {
       $('#createTodoForm').slideToggle();
-    })
+    });
+    $(".submit-btn").on('click', event => {
+    event.preventDefault();
+    $("#TodoForm").submit();
+    });
 });

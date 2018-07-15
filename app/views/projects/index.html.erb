@@ -1,4 +1,4 @@
-<h1>Задачи</h1><br>
+<header><h1>Задачи</h1></header>
 
 <%= link_to 'Создать проект', new_project_path %>
 
@@ -10,11 +10,13 @@
           <li><%= todo.text %>
             <p>
             <strong>Выполнено?</strong>
+            <span class="light">
             <% if todo.isCompleted %>
               Да
             <% else %>
               Нет
             <% end %>
+          </span>
             </p>
           </li>
           <% end %>
