@@ -1,8 +1,156 @@
 // Place all the styles related to the Projects controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#header {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 20px;
+  overflow: hidden;
+  border: none;
+  color: white;
+  text-align:center;
+  background: #3aafda;
+  -webkit-box-shadow: 1px 1px 1px 0 rgba(0,0,0,0.3);
+  box-shadow: 1px 1px 1px 0 rgba(0,0,0,0.3);
+}
+
+#header h1 {
+  font-family: 'OpenSans-Light';
+  margin: auto;
+  display: inline-block;
+  height: 40px;
+}
+
+#header button {
+  display: inline-block;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  float: right;
+  padding: 0;
+  position: relative;
+  top: 7px;
+}
 #createTodoForm {
-  display: none;
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 20%;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+    box-sizing: border-box;
+}
+
+#createTodoFormInner {
+    background-color: #ffffff;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 354px;
+    box-sizing: border-box;
+}
+#createTodoFormInner h5 {
+    font-family: 'OpenSans-Regular';
+    text-align: center;
+}
+
+#TodoForm {
+  margin: 20px;
+}
+
+#todo_text, #todo_project_id {
+  width: 314px;
+  height: 40px;
+  padding-left: 10px;
+  margin-bottom: 15px;
+}
+
+#todo_project_id {
+  vertical-align: center;
+}
+
+.Todos {
+  margin: 4em;
+  background: #ffffff;
+  padding-left: 0;
+  padding-right: 0;
+  -webkit-box-shadow: 1px 1px 2px 0 rgba(0,0,0,1) ;
+  box-shadow: 1px 2px 1px 0 rgba(0,0,0,1) ;
+}
+
+h5 {
+  font-family: 'OpenSans-Semibold';
+  text-transform: uppercase;
+  margin: 0;
+  padding: 20px;
+  display: block;
+  position: relative;
+  border-bottom-width: 1px;
+  -webkit-box-shadow: 0px 1px 0px 0 rgba(0,0,0,0.3) ;
+  box-shadow: 0px 1px 0px 0 rgba(0,0,0,0.3) ;
+}
+ul {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  list-style-type: none;
+  -webkit-padding-start: 0;
+  -webkit-margin-before: 0;
+  -webkit-margin-after: 0;
+  -webkit-margin-start: 0;
+  -webkit-margin-end: 0;
+  margin: 20px;
+}
+.Todos li {
+  margin-bottom: 20px;
+  display: inline-block;
+  width: 25em;
+}
+li:last-child {
+  margin-bottom: 0;
+}
+@media (max-width: 992px) {
+  li:last-child {
+    margin-bottom: 20px;
+  }
+}
+@keyframes todoText{
+  0%   { width : 0; }
+  100% { width: 100%; }
+}
+.todoText {
+  display: inline-block;
+  position: relative;
+  text-align: right;
+  float: left;
+  font-family: 'OpenSans-Light';
+}
+.todoTextCompleted:after {
+  content: ' ';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: black;
+  animation-name: todoText;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+li .icheckbox_square-blue {
+  position: relative;
+  display: inline-block;
+  float: left;
+  margin-right: 20px;
 }
 
 .todoButton {
@@ -10,4 +158,70 @@
   background-color: Transparent;
   cursor: pointer;
   overflow: hidden
+}
+.buttonsContainer {
+  box-sizing: border-box;
+  width: 314px;
+}
+.submit-btn {
+  box-sizing: border-box;
+  float: right;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  color: white;
+  background-color: #3aafda;
+  font-family: 'OpenSans-Regular';
+  width: 147px;
+  height: 40px;
+  margin-top: 10px;
+  margin-left: 5px;
+  text-align: center;
+}
+.submit-btn:link, .submit-btn:visited, .submit-btn:hover, .submit-btn:active {
+  text-decoration: none;
+  color: white;
+  padding-top: 9px;
+}
+
+#canel {
+  box-sizing: border-box;
+  background-color: #9f9f9f;
+  color: white;
+  font-family: 'OpenSans-Regular';
+  width: 147px;
+  height: 40px;
+  margin-top: 10px;
+  margin-right: 5px;
+
+}
+body {
+  background: #f8f8f8;
+}
+
+
+
+@font-face {
+  font-family: 'OpenSans-Regular';
+  src:url('OpenSans-Regular.eot');
+  src:url('OpenSans-Regular.eot?#iefix') format('embedded-opentype'),
+    url('OpenSans-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'OpenSans-Light';
+  src:url('OpenSans-Light.eot');
+  src:url('OpenSans-Light.eot?#iefix') format('embedded-opentype'),
+    url('OpenSans-Light.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'OpenSans-Semibold';
+  src:url('OpenSans-Semibold.eot');
+  src:url('OpenSans-Semibold.eot?#iefix') format('embedded-opentype'),
+    url('OpenSans-Semibold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }

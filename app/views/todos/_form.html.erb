@@ -3,7 +3,9 @@
 <%= form_with scope: :todo, url: todos_path, :html => { :id => "TodoForm" } do |form| %>
 
   <%= form.text_field(:text, placeholder: "Название задачи...") %><br>
-  <%= collection_select(:todo, :project_id, Project.all, :id, :title) %><br>
-  <%= button_tag('ОТМЕНА', class: "todoButton") %>
-  <%= link_to 'OK', '', :class => 'submit-btn' %>
+  <%= collection_select(:todo, :project_id, Project.all, :id, :title, {:prompt => 'Категория...'}) %><br>
+  <div class="buttonsContainer">
+  <%= button_tag('ОТМЕНА', class: "todoButton", id: "canel") %>
+  <%= link_to 'OK', "", :class => 'submit-btn' %>
+  </div>
 <% end %>

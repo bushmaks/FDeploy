@@ -1,36 +1,31 @@
-<header><h1>Задачи</h1></header>
-
-<%= link_to 'Создать проект', new_project_path %>
-
-  <% @project.each do |project| %>
-      <div>
-      <h2><%= project.title %></h2>
+<div id="header">
+  <h1>Задачи</h1>
+  <%= button_tag(image_tag("add.png", style: "width: 26px; height: 26px"), class: "todoButton", alt: "Добавить задачу") %>
+</div>
+<div id="createTodoForm">
+  <div id="createTodoFormInner">
+    <h5>Новая задача</h5>
+    <%= render 'todos/form' %>
+  </div>
+</div>
+  <div class="container-fluid">
+    <div class="row">
+      <% @project.each do |project| %>
+      <div class="col-lg-3 col-md-4 Todos">
+        <h5><%= project.title %></h5>
         <ul>
-          <% project.todos.each do |todo| %><br>
-          <li><%= todo.text %>
-            <p>
-            <strong>Выполнено?</strong>
-            <span class="light">
-            <% if todo.isCompleted %>
-              Да
-            <% else %>
-              Нет
-            <% end %>
-          </span>
-            </p>
-          </li>
+          <% project.todos.each do |todo| %>
+            <li>
+              <%= form_for todo do |form| %>
+                <label>
+                  <%= form.check_box(:isCompleted) %>
+                  <span class="todoText"><%= todo.text %></span>
+                </label>
+              <% end %>
+            </li>
           <% end %>
         </ul>
-        <%= link_to 'Удалить проект', project_path(project),
-                method: :delete,
-                data: { confirm: "Удалится весь проект, вы уверены?" } %>
       </div>
-  <% end %>
-
-  <%= button_tag(image_tag("button.png", style: "width: 50px; height: 50px"), class: "todoButton", alt: "Добавить задачу") %>
-
-  <div id="createTodoForm">
-    <h2>Добавить задачу:</h2>
-
-    <%= render 'todos/form' %>
+    <% end %>
+    </div>
   </div>

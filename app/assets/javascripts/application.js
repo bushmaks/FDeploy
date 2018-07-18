@@ -13,15 +13,45 @@
 //= require rails-ujs
 //= require activestorage
 //= require jquery
+//= require icheck.min
+//= require select2.min
 //= require_tree .
 
-// Функция для того, что бы открыть и закрыть форму добавления задачи
+
 $(document).ready(() => {
+  // Функция для того, что бы открыть и закрыть форму добавления задачи
     $('.todoButton').on('click', () => {
       $('#createTodoForm').slideToggle();
     });
+    // Кнопка ОК
     $(".submit-btn").on('click', event => {
-    event.preventDefault();
-    $("#TodoForm").submit();
+     event.preventDefault();
+     $("#TodoForm").submit();
+    });
+
+    // Функционал checkbox
+    $('.Todos input').iCheck({
+    checkboxClass: 'icheckbox_square-blue',
+    increaseArea: '20%' // optional
+    }).on('ifToggled', event => {
+      $(event.currentTarget).closest('form').submit();
+    });
+
+    // Зачеркивание текста задачи
+    $('input').on('ifChecked', event => {
+      $(event.currentTarget).parent().next().addClass('todoTextCompleted');
+    });
+    $('.Todos input').on('ifUnchecked', event => {
+      $(event.currentTarget).parent().next().removeClass('todoTextCompleted');
+    });
+
+    $('.icheckbox_square-blue').each(function() {
+          if ($(this).hasClass('checked')) {
+              $(this).next().addClass('todoTextCompleted');
+          }
+    });
+    // Убрать поиск из селектора
+    $('#todo_project_id').select2({
+      minimumResultsForSearch: -1
     });
 });

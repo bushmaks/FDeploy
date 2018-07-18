@@ -2,6 +2,8 @@ class TodosController < ApplicationController
   def new
     @project = Project.find(params[:project_id])
     @todo = @project.todos.create(todo_params)
+
+    redirect_to root_path
   end
   def edit
     @project = Project.find(params[:project_id])
@@ -11,25 +13,19 @@ class TodosController < ApplicationController
   def create
     @project = Project.find(params[:todo][:project_id])
     @todo = @project.todos.create(todo_params)
-    redirect_to '/'
+
+    redirect_to root_path
   end
 
   def update
-    @project = Project.find(params[:project_id])
-    @todo = @project.todos.find(params[:id])
-
-    if @todo.update(todo_params)
-      redirect_to @project
-    else
-      render 'edit'
-    end
+    @todo = Todo.find(params[:id])
+    @todo.update_attributes(todo_params)
   end
 
   def destroy
     @project = Project.find(params[:project_id])
     @todo = @project.todos.find(params[:id])
     @todo.destroy
-    redirect_to project_path(@project)
   end
 
   private
