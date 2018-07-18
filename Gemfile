@@ -60,4 +60,4 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # Bootstrap
 # gem 'bootstrap'
-gem 'rails_12factor'
+gem 'rails_12factor', group: :production
