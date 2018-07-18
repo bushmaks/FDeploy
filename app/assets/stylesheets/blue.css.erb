@@ -1,5 +1,8 @@
 /* iCheck plugin Square skin, blue
 ----------------------------------- */
+//= depend_on_asset "blue.png"
+//= depend_on_asset "blue-2x.png"
+
 .icheckbox_square-blue,
 .iradio_square-blue {
     display: inline-block;
@@ -9,7 +12,7 @@
     padding: 0;
     width: 22px;
     height: 22px;
-    background: url(blue.png) no-repeat;
+    background: url('<%= asset_path("blue.png") %> ') no-repeat;
     border: none;
     cursor: pointer;
 }
@@ -52,7 +55,7 @@
 @media (-o-min-device-pixel-ratio: 5/4), (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 120dpi), (min-resolution: 1.25dppx) {
     .icheckbox_square-blue,
     .iradio_square-blue {
-        background-image: url(blue-2x.png);
+        background-image: url('<%= asset_path("blue-2x.png") %> ');
         -webkit-background-size: 240px 24px;
         background-size: 240px 24px;
     }
