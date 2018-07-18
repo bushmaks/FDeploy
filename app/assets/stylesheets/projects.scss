@@ -203,25 +203,25 @@ body {
 
 @font-face {
   font-family: 'OpenSans-Regular';
-  src:url('fonts/OpenSans-Regular.eot');
-  src:url('fonts/OpenSans-Regular.eot?#iefix') format('embedded-opentype'),
-    url('fonts/OpenSans-Regular.ttf') format('truetype');
+  src: font-url('OpenSans-Regular.eot');
+  src: font-url('OpenSans-Regular.eot?#iefix') format('embedded-opentype'),
+    font-url('OpenSans-Regular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: 'OpenSans-Light';
-  src:url('fonts/OpenSans-Light.eot');
-  src:url('fonts/OpenSans-Light.eot?#iefix') format('embedded-opentype'),
-    url('fonts/OpenSans-Light.ttf') format('truetype');
+  src: font-url('OpenSans-Light.eot');
+  src: font-url('OpenSans-Light.eot?#iefix') format('embedded-opentype'),
+    font-url('OpenSans-Light.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: 'OpenSans-Semibold';
-  src:url('fonts/OpenSans-Semibold.eot');
-  src:url('fonts/OpenSans-Semibold.eot?#iefix') format('embedded-opentype'),
-    url('fonts/OpenSans-Semibold.ttf') format('truetype');
+  src: font-url('OpenSans-Semibold.eot');
+  src: font-url('OpenSans-Semibold.eot?#iefix') format('embedded-opentype'),
+    font-url('OpenSans-Semibold.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
